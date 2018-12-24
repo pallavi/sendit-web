@@ -1,0 +1,178 @@
+body {
+    background: $alabaster-white;
+    color: $charcoal-gray;
+    font-family: Avenir, sans-serif;
+    margin: 0;
+}
+
+.app-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+a {
+    color: $navy-blue;
+}
+
+textarea, select, input, button {
+    outline: none;
+}
+
+.logo {
+    color: initial;
+    font-family: Chalkduster;
+    font-size: 24px;
+    
+    .send {
+        color: $tangerine-orange;
+    }
+
+    &:hover {
+        cursor: default;
+    }
+}
+
+i {
+    &.fa-times-circle {
+        color: $bright-red;
+    }
+
+    &.fa-check-circle {
+        color: green;
+    }
+}
+
+.flash {
+    padding: 10px;
+
+    &.danger {
+        background: $pale-pink;
+        border: 1px solid $bright-red;
+        color: $bright-red;
+    }
+}
+
+.form-container {
+    background: white;
+    border: 1px solid $silver-gray;
+    border-radius: 4px;
+    height: fit-content;
+    padding: 30px;
+
+    .form-header {
+        text-align: center;
+
+        h2 {
+            margin: 12px;
+        }
+
+        .logo {
+            font-size: 32px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .flash {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    .helper-text {
+        color: $silver-gray;
+        float: right;
+        font-size: 10px;
+        font-style: italic;
+        margin-top: 30px;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    padding-bottom: 32px;
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .form-input-container {
+        border-radius: 10px;
+        display: flex;
+        position: relative;
+
+        i {
+            align-self: center;
+            font-size: 16px;
+            position: absolute;
+            right: 15px;
+        }
+    }
+
+    .form-text-input {
+        border: 1px solid $dark-silver-gray;
+        border-radius: 10px;
+        color: $charcoal-gray;
+        font-family: Avenir, sans-serif;
+        padding: 10px 15px;
+        width: 100%;
+
+        &::placeholder {
+            color: $silver-gray;
+        }
+
+        &:focus {
+            border: 1px solid $navy-blue;
+        }
+    }
+
+    .form-helper-text {
+        color: $silver-gray;
+        font-size: 10px;
+        margin-top: 8px;
+        margin-left: 2px;
+    }
+}
+
+.btn {
+    border: none;
+    font-family: Avenir, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 0;
+    
+    div {
+        padding: 10px;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+    }
+
+    &.btn-large {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    &.btn-orange {
+        background: $tangerine-orange;
+        color: white;
+    
+        &.active {
+            background: darken($tangerine-orange, 10%);
+        }
+    }
+
+    &.btn-blue {
+        background: $navy-blue;
+        color: white;
+    
+        &.active {
+            background: darken($navy-blue, 10%);
+        }
+    }
+}

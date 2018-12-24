@@ -14,7 +14,7 @@ const PLUGINS = [
 ];
 
 module.exports = {
-	entry: './src/index.jsx',
+	entry: ['babel-polyfill', './src/index.jsx'],
   mode: process.env.NODE_ENV || 'development',
 	output: {
 		path: Path.resolve(__dirname, 'build'),
@@ -24,14 +24,34 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   devServer: {
-    disableHostCheck: true
+    disableHostCheck: true,
+    historyApiFallback: true
   },
 	module: {
 		rules: [{
 			test: /\.jsx?$/,
 			loader: 'babel-loader',
 			exclude: /node_modules/
-		}]
+		}, {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
+    }, {
+      test: /\.ttf$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]'
+        }
+      }
+    }, {
+      test: /\.jpg$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]'
+        }
+      }
+    }]
   },
   plugins: PLUGINS
 };
