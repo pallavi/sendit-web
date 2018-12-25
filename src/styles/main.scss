@@ -11,7 +11,7 @@ body {
 }
 
 a {
-    color: $navy-blue;
+    color: $steel-blue;
 }
 
 textarea, select, input, button {
@@ -168,11 +168,11 @@ i {
     }
 
     &.btn-blue {
-        background: $navy-blue;
+        background: $steel-blue;
         color: white;
     
         &.active {
-            background: darken($navy-blue, 10%);
+            background: darken($steel-blue, 10%);
         }
     }
 }
