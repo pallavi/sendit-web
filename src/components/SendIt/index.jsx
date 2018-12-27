@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import JWTDecode     from 'jwt-decode';
 
 import History from '../../services/history';
 import SendIt  from './SendIt';
@@ -12,9 +13,12 @@ class SendItContainer extends Component {
         };
         this.handleSignOut = this.handleSignOut.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.checkTokenExpiration = this.checkTokenExpiration.bind(this);
     }
 
     componentDidMount() {
+        this.setSignoutTimeout();
+
         window.addEventListener('resize', () => {
             if (window.innerWidth > 499) {
                 this.setState({
@@ -22,6 +26,27 @@ class SendItContainer extends Component {
                 });
             }
         });
+    }
+
+    setSignoutTimeout() {
+        this.setTokenExpirationTimeout = setTimeout(this.checkTokenExpiration, 10 * 1000);
+    }
+
+    checkTokenExpiration() {
+        const token = localStorage.getItem('jwt-token');
+        const claims = JWTDecode(token);
+        const now = new Date().getTime() / 1000;
+        if (now > claims.exp) {
+            this.handleAutoSignOut();
+        } else {
+            clearTimeout(this.setTokenExpirationTimeout);
+            this.setSignoutTimeout();
+        }
+    }
+
+    handleAutoSignOut() {
+        localStorage.removeItem('jwt-token');
+        History.push('login');
     }
 
     handleSignOut() {

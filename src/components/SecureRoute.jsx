@@ -1,5 +1,5 @@
+import JWTDecode from 'jwt-decode';
 import PropTypes from 'prop-types';
-
 import { Route } from 'react-router-dom';
 
 class SecureRoute extends Route {

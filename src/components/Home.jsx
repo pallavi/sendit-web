@@ -14,7 +14,7 @@ const Home = () =>
                 <NavLink to="features">Features</NavLink>
                 <NavLink to="about">About</NavLink>
                 <NavLink to="login">Sign in</NavLink>
-                <NavLink to="register" className="cta">Sign up</NavLink>
+                <NavLink to="register" className="btn btn-red-inverse">Sign up</NavLink>
             </div>
         </div>
         <div className="home-container">

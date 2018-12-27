@@ -13,3 +13,8 @@ run the api server locally.
 ```
 $ yarn start
 ```
+
+## notes
+when you make an api call, if your jwt token is over 2 minutes old, it will be refreshed.
+
+the app checks your token every second, and if it is expired, it will automatically log you out.
