@@ -1,0 +1,106 @@
+.routes-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .routes-filters {
+        .search-filter {
+            width: 50%;
+
+            .form-group {
+                padding-bottom: 15px;
+            }
+        }
+
+        .dropdown-filters {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            .form-group {
+                padding-bottom: 25px;
+                width: 23%;
+
+                .select {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .results-table-container {
+        margin-bottom: 20px;
+        width: 100%;
+
+        .results-table {
+            th {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            td[id=Actions] {
+                min-width: 115px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            td[id=Sent] {
+                text-align: center;
+
+                .fa-check {
+                    color: $green;
+                }
+            }
+
+            td[id=Flash] {
+                text-align: center;
+                
+                .fa-check {
+                    color: $yellow;
+                }
+            }
+
+            .expand-link {
+                margin-left: 10px;
+            }
+
+            .list-table {
+                width: 100%;
+
+                th[id=Number\ of\ attempts], th[id=Sent\?],
+                td[id=Number\ of\ attempts], td[id=Sent\?] {
+                    text-align: center;
+
+                    .fa-check {
+                        color: $green;
+                    }
+                }
+
+                td:last-child {
+                    width: 99%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 970px) {
+    /*
+    .routes-container > .results-table-container > .results-table {
+        th[id=Location], th[id=Type], th[id="Date Added"], th[id=Tags], 
+        td[id=Location], td[id=Type], td[id="Date Added"], td[id=Tags] {
+            display: none;
+        }
+
+        td[id=Name], td[id=Location] {
+            max-width: 500px;
+        }
+    }
+    */
+}
+
+@media screen and (max-height: 450px) {
+}
+

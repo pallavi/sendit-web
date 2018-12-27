@@ -1,3 +1,4 @@
+import JWTDecode   from 'jwt-decode';
 import QueryString from 'qs';
 
 import Config from '../../config';
@@ -5,7 +6,8 @@ import Config from '../../config';
 class SendIt {
 
     constructor() {
-        this.jwtToken = localStorage.getItem('jwt-token');
+        this.refreshEndpoint = 'auth/refresh';
+        this.refreshInterval = 120; //seconds
     }
 
     async checkStatus(response) {
@@ -18,13 +20,26 @@ class SendIt {
         throw error;
     }
 
+    async checkAndRefreshToken(token) {
+        const claims = JWTDecode(token);
+        const now = new Date().getTime() / 1000;
+        if (now - claims.iat >= this.refreshInterval) {
+            const res = await this.request('GET', this.refreshEndpoint);
+            localStorage.setItem('jwt-token', res.jwt_token);
+        }
+    }
+
     async request(method, endpoint, payload, query) {
         const headers = {
             accept: 'application/json',
             'content-type': 'application/json; charset=utf-8'
         };
-        if (this.jwtToken) {
-            headers.authorization = `Bearer ${this.jwtToken}`;
+        const jwtToken = localStorage.getItem('jwt-token');
+        if (jwtToken) {
+            if (endpoint !== this.refreshEndpoint) {
+                await this.checkAndRefreshToken(jwtToken);
+            }
+            headers.authorization = `Bearer ${jwtToken}`;
         }
 
         let body = undefined;

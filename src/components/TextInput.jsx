@@ -36,7 +36,7 @@ TextInput.propTypes = {
     value: PropTypes.any,
     isValid: PropTypes.bool,
     isCheckingValidity: PropTypes.bool,
-    type: PropTypes.oneOf(['password', 'text']),
+    type: PropTypes.oneOf(['password', 'text', 'search']),
     handleChange: PropTypes.func
 };
 

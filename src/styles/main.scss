@@ -12,6 +12,10 @@ body {
 
 a {
     color: $steel-blue;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 textarea, select, input, button {
@@ -135,6 +139,30 @@ i {
         margin-top: 8px;
         margin-left: 2px;
     }
+
+    .form-dropdown-input {
+        background: white;
+        border: 1px solid $dark-silver-gray;
+        color: $charcoal-gray;
+        height: 37px;
+        font-family: Avenir, sans-serif;
+        text-indent: 6px;
+
+        &:focus {
+            border: 1px solid $navy-blue;
+        }
+    }
+}
+
+.tag {
+    background: $apricot-orange;
+    border: 1px solid $sienna-orange;
+    border-radius: 2px;
+    color: $sienna-orange;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    padding: 2px 4px;
 }
 
 .btn {
@@ -172,6 +200,27 @@ i {
             padding: 7px;
             width: 100%;
         }
+    }
+
+    &.btn-red-inverse {
+        background: white;
+        border: 2px solid $bright-red;
+        border-radius: 5px;
+        color: $bright-red;
+        padding: 8px 18px;
+
+        &:hover {
+            background: $bright-red;
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    &.btn-small {
+        border: 1px solid;
+        font-weight: 500;
+        font-size: 10px;
+        padding: 1.5px 9px;
     }
 
     &.btn-orange {
@@ -233,7 +282,7 @@ i {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 17%;
+    min-width: 17%;
 
     .logo-container {
         align-items: center;
@@ -327,6 +376,7 @@ i {
 
 @media only screen and (min-width: 500px) and (max-width: 799px) {
     .main-menu {
+        min-width: 0;
         width: 50px;
 
         .logo-container {
@@ -355,15 +405,17 @@ i {
 }
 
 .main-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     height: 100%;
-    width: 100%;
 
     .main-header {
         align-items: center;
         background: white;
         border-bottom: 1px solid $silver-gray;
         display: flex;
-        height: 70px;
+        min-height: 70px;
         justify-content: space-between;
         width: 100%;
 
@@ -387,6 +439,10 @@ i {
     }
 
     .main-content {
+        display: flex;
+        flex-grow: 1;
+        height: 100%;
+        overflow: scroll;
         padding: 15px 24px;
     }
 }
@@ -410,6 +466,126 @@ i {
     .main-container .main-header {
         .btn-orange {
             display: none;
+        }
+    }
+}
+
+.list-table {
+    background: white;
+    border-collapse: collapse;
+
+    thead {
+        border-bottom: 1px solid $off-white;
+    }
+
+    th, td {
+        border: none;
+    }
+}
+
+.results-table-container {
+    border: 1px solid $silver-gray;
+    border-radius: 4px;
+}
+.results-table {
+    background: white;
+    border: none;
+    border-collapse: collapse;
+    border-radius: 4px;
+    display: table;
+    width: 100%;
+
+    .list-table {
+        th, td {
+            border: none;
+        }
+    }
+
+    tr {
+        &.row-result:nth-of-type(even) {
+            background: $zircon-blue;
+        }
+
+        &:first-child > th {
+            border-top: none;
+        }
+
+        &:last-child > td {
+            border-bottom: none;
+        }
+
+        th {
+            color: $dark-silver-gray;
+            font-weight: 500;
+            text-align: left;
+
+            &.results-count {
+                border-bottom: 1px solid $silver-gray;
+                color: $dark-silver-gray;
+                padding: 10px;
+                font-size: 12px;
+                font-weight: normal;
+        
+                .number {
+                    color: $charcoal-gray;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        th, td {
+            border: 1px solid $off-white;
+            font-size: 12px;
+            padding: 10px 12px;
+    
+            &:first-child {
+                border-left: none;
+            }
+    
+            &:last-child {
+                border-right: none;
+            }
+
+            .tag:not(:first-child) {
+                margin-left: 6px;
+            }
+
+            i {
+                text-align: center;
+            }
+
+            .expand-link {
+                color: $steel-blue;
+                font-style: italic;
+                text-decoration: underline;
+
+                &.expanded {
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    font-weight: bold;
+                    font-style: normal;
+                }
+            }
+        }
+
+        &.row-result.expanded {
+            background: $zumthor-blue;
+            border: 2px solid $botticelli-blue;
+        }
+
+        &.row-details {
+            border: 2px solid $botticelli-blue;
+        }
+        
+        .expand-triangle {
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            
+            border-bottom: 5px solid black;
         }
     }
 }
