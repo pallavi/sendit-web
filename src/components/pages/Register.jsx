@@ -1,5 +1,5 @@
-import Logo       from './Logo';
-import SignUpForm from './SignUpForm';
+import Logo       from '../Logo';
+import SignUpForm from '../SignUpForm';
 
 const Register = () =>
     <div className="register-container">

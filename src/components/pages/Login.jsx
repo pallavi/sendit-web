@@ -1,5 +1,5 @@
-import Logo       from './Logo';
-import SignInForm from './SignInForm';
+import Logo       from '../Logo';
+import SignInForm from '../SignInForm';
 
 const Login = () =>
     <div className="login-container">

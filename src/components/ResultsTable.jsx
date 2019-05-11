@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import PropTypes    from 'prop-types';
 
-const ResultsTable = ({ properties, results, expandedDetails }) => {
+const ResultsTable = ({ properties, results, onRowClick, expandedDetails }) => {
     return (
         <div className="results-table-container">
             <table className="results-table">
@@ -18,7 +18,7 @@ const ResultsTable = ({ properties, results, expandedDetails }) => {
                 <tbody>
                     {results.map((result) =>
                         <Fragment>
-                            <tr className={`row-result ${result.expanded ? 'expanded' : ''}`} id={result.id} key={result.id}>
+                            <tr className={`row-result ${onRowClick ? 'row-link' : ''} ${result.expanded ? 'expanded' : ''}`} onClick={onRowClick ? () => onRowClick(result) : null} id={result.id} key={result.id}>
                                 {properties.map((property) =>
                                     <td id={property.title} key={property.title}>{property.getValue(result)}</td>
                                 )}
@@ -46,6 +46,7 @@ ResultsTable.propTypes = {
     results: PropTypes.arrayOf(PropTypes.shape({
         expanded: PropTypes.bool
     })).isRequired,
+    onRowClick: PropTypes.func,
     expandedDetails: PropTypes.func
 };
 

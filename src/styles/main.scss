@@ -26,13 +26,14 @@ textarea, select, input, button {
     color: $charcoal-gray;
     font-family: Chalkduster;
     font-size: 24px;
+    text-decoration: none;
     
     .send {
         color: $tangerine-orange;
     }
 
     &:hover {
-        cursor: default;
+        cursor: pointer;
     }
 }
 
@@ -53,6 +54,31 @@ i {
         background: $pale-pink;
         border: 1px solid $bright-red;
         color: $bright-red;
+    }
+}
+
+.card {
+    background: white;
+    border: 1px solid $silver-gray;
+    border-radius: 4px;
+    margin: 15px 0px;
+    padding: 15px;
+    width: 100%;
+
+    .card-header {
+        border-bottom: 1px solid $steel-blue;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 10px;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .card-content {
+        font-size: 12px;
+        padding-top: 15px;
     }
 }
 
@@ -376,8 +402,8 @@ i {
 
 @media only screen and (min-width: 500px) and (max-width: 799px) {
     .main-menu {
-        min-width: 0;
-        width: 50px;
+        //min-width: 0;
+        min-width: 50px;
 
         .logo-container {
             display: none;
@@ -473,13 +499,18 @@ i {
 .list-table {
     background: white;
     border-collapse: collapse;
+    font-size: 12px;
 
     thead {
         border-bottom: 1px solid $off-white;
+        color: $dark-silver-gray;
+        font-weight: 500;
+        text-align: left;
     }
 
     th, td {
         border: none;
+        padding: 10px 12px;
     }
 }
 
@@ -494,12 +525,6 @@ i {
     border-radius: 4px;
     display: table;
     width: 100%;
-
-    .list-table {
-        th, td {
-            border: none;
-        }
-    }
 
     tr {
         &.row-result:nth-of-type(even) {
@@ -570,6 +595,15 @@ i {
             }
         }
 
+        &.row-result.row-link {
+            &:hover {
+                background: $zumthor-blue;
+                border: 2px solid $botticelli-blue;
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+
         &.row-result.expanded {
             background: $zumthor-blue;
             border: 2px solid $botticelli-blue;
@@ -586,6 +620,18 @@ i {
             border-right: 5px solid transparent;
             
             border-bottom: 5px solid black;
+        }
+    }
+}
+
+.property-table {
+    td {
+        margin-right: 20px;
+
+        &:first-child {
+            color: $dark-silver-gray;
+            font-weight: bold;
+            padding-right: 10%;
         }
     }
 }

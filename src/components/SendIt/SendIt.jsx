@@ -15,7 +15,7 @@ const SendIt = ({ children, location, handleSignOut, toggleMenu, showMenu }) => 
                 <div className="items-container">
                     <NavLink
                         onClick={showMenu ? toggleMenu : undefined}
-                        to="record-a-climb"
+                        to="/record-a-climb"
                         className='btn btn-dark btn-medium'
                         activeClassName='selected'
                         isActive={(match, location) => location.pathname === '/record-a-climb'}>
@@ -36,7 +36,7 @@ const SendIt = ({ children, location, handleSignOut, toggleMenu, showMenu }) => 
                         </NavLink>
                         <NavLink
                             onClick={showMenu ? toggleMenu : undefined}
-                            to="session-log" 
+                            to="/session-log" 
                             activeClassName='selected'
                             isActive={(match, location) => location.pathname.startsWith('/session-log')}>
                             <i className="fas fa-book"></i>
@@ -44,7 +44,7 @@ const SendIt = ({ children, location, handleSignOut, toggleMenu, showMenu }) => 
                         </NavLink>
                         <NavLink
                             onClick={showMenu ? toggleMenu : undefined} 
-                            to="routes" 
+                            to="/routes" 
                             activeClassName='selected'
                             isActive={(match, location) => location.pathname.startsWith('/routes')}>
                             <i className="fas fa-mountain"></i>
@@ -52,7 +52,7 @@ const SendIt = ({ children, location, handleSignOut, toggleMenu, showMenu }) => 
                         </NavLink>
                         <NavLink
                             onClick={showMenu ? toggleMenu : undefined}
-                            to="locations"
+                            to="/locations"
                             activeClassName='selected'
                             isActive={(match, location) => location.pathname.startsWith('/locations')}>
                             <i className="fas fa-map-marked-alt"></i>
@@ -63,7 +63,7 @@ const SendIt = ({ children, location, handleSignOut, toggleMenu, showMenu }) => 
                         <h4>Account</h4>
                         <NavLink
                             onClick={showMenu ? toggleMenu : undefined}
-                            to="settings" 
+                            to="/settings" 
                             activeClassName='selected'
                             isActive={(match, location) => location.pathname.startsWith('/settings')}>
                             <i className="fas fa-cog"></i>

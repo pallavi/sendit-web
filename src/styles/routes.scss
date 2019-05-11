@@ -65,23 +65,74 @@
             .expand-link {
                 margin-left: 10px;
             }
+        }
+    }
 
-            .list-table {
-                width: 100%;
+    .route-header {
+        align-items: center;
+        border-bottom: 1px solid $silver-gray;
+        display: flex;
+        justify-content: space-between;
 
-                th[id=Number\ of\ attempts], th[id=Sent\?],
-                td[id=Number\ of\ attempts], td[id=Sent\?] {
-                    text-align: center;
+        h2 {
+            margin-top: 10px;
+        }
 
-                    .fa-check {
-                        color: $green;
-                    }
+        .route-stats {
+            display: flex;
+
+            .route-stat {
+                border-right: 1px solid $off-white;
+                color: $dark-silver-gray;
+                padding: 10px;
+                font-size: 12px;
+                font-weight: normal;
+        
+                .number {
+                    color: $charcoal-gray;
+                    font-weight: bold;
                 }
-
-                td:last-child {
-                    width: 99%;
+    
+                &:last-child {
+                    border-right: none;
                 }
             }
+        }
+    }
+
+    .route-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+
+        .tag:not(:first-child) {
+            margin-left: 6px;
+        }
+
+        .card {
+            margin-bottom: 10px;
+        }
+
+        .card[id=Details], .card[id=Photos] {
+            width: 44%;
+        }
+    }
+
+    .list-table {
+        width: 100%;
+
+        th[id=Number\ of\ attempts], th[id=Sent\?],
+        td[id=Number\ of\ attempts], td[id=Sent\?] {
+            text-align: center;
+
+            .fa-check {
+                color: $green;
+            }
+        }
+
+        td:last-child {
+            max-width: 70%;
         }
     }
 }
@@ -101,6 +152,10 @@
     */
 }
 
-@media screen and (max-height: 450px) {
+@media only screen and (max-width: 800px) {
+    .routes-container > .route-details {
+        .card[id=Details], .card[id=Photos] {
+            width: 100%;
+        }
+    }
 }
-

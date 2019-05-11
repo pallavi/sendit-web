@@ -18,7 +18,8 @@ module.exports = {
   mode: process.env.NODE_ENV || 'development',
 	output: {
 		path: Path.resolve(__dirname, 'build'),
-		filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx']

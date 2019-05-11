@@ -2,7 +2,7 @@ import _             from 'lodash';
 import { Component } from 'react';
 
 import Routes from './Routes';
-import SendIt from '../../libraries/sendit';
+import SendIt from '../../../libraries/sendit';
 
 class RoutesContainer extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class RoutesContainer extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDropdown = this.handleDropdown.bind(this);
         this.applyFilters = this.applyFilters.bind(this);
-        this.toggleExpand = this.toggleExpand.bind(this);
+        this.viewRoute = this.viewRoute.bind(this);
     }
 
     async componentDidMount() {
@@ -51,13 +51,6 @@ class RoutesContainer extends Component {
 
     handleDropdown(e) {
         this.setState({ filters: { ...this.state.filters, [e.target.name]: e.target.value } }, this.applyFilters);
-    }
-
-    toggleExpand(id) {
-        const filteredRoutes = this.state.filteredRoutes;
-        const idx = _.findIndex(filteredRoutes, { id });
-        filteredRoutes[idx].expanded = !filteredRoutes[idx].expanded;
-        this.setState({ filteredRoutes });
     }
 
     applyFilters() {
@@ -97,6 +90,10 @@ class RoutesContainer extends Component {
         this.applyFilters();
     }
 
+    viewRoute(route) {
+        this.props.history.push(`/routes/${route.id}`);
+    }
+
     render() {
         if (this.state.filteredRoutes === null) {
             return null;
@@ -112,6 +109,7 @@ class RoutesContainer extends Component {
                 handleDropdown={this.handleDropdown}
                 handleSubmit={this.handleSubmit}
                 toggleExpand={this.toggleExpand}
+                viewRoute={this.viewRoute}
             />
         )
     }
